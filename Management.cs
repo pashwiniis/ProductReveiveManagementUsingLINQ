@@ -68,5 +68,14 @@ namespace ProductReveiveManagementUsingLINQ
                 Console.WriteLine("ProductID : " + Product.Field<int>("ProductID") + "\t" + "UserID : " + Product.Field<int>("UserID") + "\t" + "Rating : " + Product.Field<int>("Rating") + "\t" + "Review : " + Product.Field<string>("Review") + "\t" + "ISLike : " + Product.Field<bool>("ISLike"));
             }
         }
+        public void RetrieveRecordsFromDataTable(List<ProductReview> productList)
+        {
+
+            var productTable = from Product in this.dataTable.AsEnumerable() where Product.Field<bool>("ISLike").Equals(true) select Product;
+            foreach (DataRow Product in productTable)
+            {
+                Console.WriteLine("ProductId : " + Product.Field<int>("ProductID") + "\t" + "UserID : " + Product.Field<int>("UserID") + "\t" + "Rating : " + Product.Field<int>("Rating") + "\t" + "Review : " + Product.Field<string>("Review") + "\t" + "ISLike : " + Product.Field<bool>("ISLike"));
+            }
+        }
     }
 }
