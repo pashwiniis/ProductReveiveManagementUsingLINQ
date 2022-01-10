@@ -85,5 +85,13 @@ namespace ProductReveiveManagementUsingLINQ
                 Console.WriteLine("ProductID "+data.ProductID + " =" + " Average "+ data.AverageRating);
             }
         }
+        public void RetrieveReviewofNice(List<ProductReview> productList, string reviewMessage)
+        {
+            var records = from Product in productList where Product.Review.Contains(reviewMessage) select Product;
+            foreach (var pro in records)
+            {
+                Console.WriteLine("ProductID : {0} \t UserID : {1} \t Rating : {2} \t Review : {3} \t ISLike : {4}", pro.ProductID, pro.UserID, pro.Rating, pro.Review, pro.ISLike);
+            }
+        }
     }
 }
