@@ -30,7 +30,7 @@ namespace ProductReveiveManagementUsingLINQ
 
             while (flag)
             {
-                Console.WriteLine("Specify the Number To Excute USE CASE Wise Problems:-- \n 1. Displaying ADD List \n 2. Top Three Records According to Rating  \n 3. Retrieve Records using Product ID which is Rating > 3\n 4. The Number of Records of ProductID \n 5. Retrieve Product ID and Review\n 6. Skip Top Five Records \n 7. Retrieve Product ID and Review \n 8. Product Review of Datatable\n 9. Exit");
+                Console.WriteLine("Specify the Number To Excute USE CASE Wise Problems:-- \n 1. Displaying ADD List \n 2. Top Three Records According to Rating  \n 3. Retrieve Records using Product ID which is Rating > 3\n 4. The Number of Records of ProductID \n 5. Retrieve Product ID and Review\n 6. Skip Top Five Records \n 7. Retrieve Product ID and Review \n 8. Product Review of Datatable\n 9. Retrieve Records From DataTable\n 10. Exit");
                 int number = Convert.ToInt32(Console.ReadLine());
                 switch (number)
                 {
@@ -60,6 +60,9 @@ namespace ProductReveiveManagementUsingLINQ
                         management.ProductReviewDatatable(productList);
                         break;
                     case 9:
+                        management.RetrieveRecordsFromDataTable(productList);
+                        break;
+                    case 10:
                         flag = false;
                         break;
                 }
