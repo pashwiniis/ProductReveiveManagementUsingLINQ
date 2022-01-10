@@ -77,5 +77,13 @@ namespace ProductReveiveManagementUsingLINQ
                 Console.WriteLine("ProductId : " + Product.Field<int>("ProductID") + "\t" + "UserID : " + Product.Field<int>("UserID") + "\t" + "Rating : " + Product.Field<int>("Rating") + "\t" + "Review : " + Product.Field<string>("Review") + "\t" + "ISLike : " + Product.Field<bool>("ISLike"));
             }
         }
+        public void AverageProductID(List<ProductReview> productList)
+        {
+            var records = productList.GroupBy(X => X.ProductID).Select(X => new { ProductID = X.Key, AverageRating = X.Average(x => x.Rating) });
+            foreach (var data in records)
+            {
+                Console.WriteLine("ProductID "+data.ProductID + " =" + " Average "+ data.AverageRating);
+            }
+        }
     }
 }
