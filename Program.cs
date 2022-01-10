@@ -30,7 +30,7 @@ namespace ProductReveiveManagementUsingLINQ
 
             while (flag)
             {
-                Console.WriteLine("Specify the Number To Excute USE CASE Wise Problems:-- \n 1. Displaying ADD List \n 2. Top Three Records According to Rating  \n 3. Retrieve Records using Product ID which is Rating > 3\n 4. The Number of Records of ProductID \n 5. Exit");
+                Console.WriteLine("Specify the Number To Excute USE CASE Wise Problems:-- \n 1. Displaying ADD List \n 2. Top Three Records According to Rating  \n 3. Retrieve Records using Product ID which is Rating > 3\n 4. The Number of Records of ProductID \n 5. Retrieve Product ID and Review\n 6. Exit");
                 int number = Convert.ToInt32(Console.ReadLine());
                 switch (number)
                 {
@@ -47,6 +47,9 @@ namespace ProductReveiveManagementUsingLINQ
                         management.RetrieveRecordsCount(productList);
                         break;
                     case 5:
+                        management.RetrieveOnlyproductIDAndReview(productList);
+                        break;
+                    case 6:
                         flag = false;
                         break;
                 }

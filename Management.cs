@@ -35,5 +35,14 @@ namespace ProductReveiveManagementUsingLINQ
 
             }
         }
+        public void RetrieveOnlyproductIDAndReview(List<ProductReview> productList)
+        {
+            var records = from Product in productList select new { Product.ProductID, Product.Review };
+            foreach (var data in records)
+            {
+                Console.WriteLine("ProductID : " + data.ProductID + " " + "Review : " + data.Review);
+            }
+
+        }
     }
 }
