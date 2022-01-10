@@ -28,7 +28,23 @@ namespace ProductReveiveManagementUsingLINQ
             bool flag = true;
             Management management = new Management();
 
-            management.Display(productList);
+            while (flag)
+            {
+                Console.WriteLine("Specify the Number To Excute USE CASE Wise Problems:-- \n 1. Displaying ADD List \n 2. Top Three Records According to Rating \n 3. Exit");
+                int number = Convert.ToInt32(Console.ReadLine());
+                switch (number)
+                {
+                    case 1:
+                        management.Display(productList);
+                        break;
+                    case 2:
+                        management.TopThreeRecords(productList);
+                        break;
+                    case 3:
+                        flag = false;
+                        break;
+                }
+            }
         }
     }
 }
