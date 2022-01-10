@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,6 +49,24 @@ namespace ProductReveiveManagementUsingLINQ
         {
             var records = (from Product in productList select Product).Skip(5).ToList();
             Display(records);
+        }
+        DataTable dataTable = new DataTable();
+        public void ProductReviewDatatable(List<ProductReview> productList)
+        {
+            dataTable.Columns.Add("ProductID").DataType = typeof(Int32);
+            dataTable.Columns.Add("UserID").DataType = typeof(Int32);
+            dataTable.Columns.Add("Rating").DataType = typeof(Int32);
+            dataTable.Columns.Add("Review");
+            dataTable.Columns.Add("ISLike").DataType = typeof(bool);
+            foreach (var data in productList)
+            {
+                dataTable.Rows.Add(data.ProductID, data.UserID, data.Rating, data.Review, data.ISLike);
+            }
+            var productTable = from Product in dataTable.AsEnumerable() select Product;
+            foreach (DataRow Product in productTable)
+            {
+                Console.WriteLine("ProductID : " + Product.Field<int>("ProductID") + "\t" + "UserID : " + Product.Field<int>("UserID") + "\t" + "Rating : " + Product.Field<int>("Rating") + "\t" + "Review : " + Product.Field<string>("Review") + "\t" + "ISLike : " + Product.Field<bool>("ISLike"));
+            }
         }
     }
 }
